@@ -1,0 +1,40 @@
+.projects {
+  padding: 30px;
+  background: #f4f6f8;
+  min-height: 100vh;
+}
+
+.project-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.project-form input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.project-form button {
+  padding: 10px 15px;
+  background: #4cafef;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.project-list {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.project-card {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  width: 200px;
+  box-shadow: 0 0 6px rgba(0,0,0,0.1);
+}

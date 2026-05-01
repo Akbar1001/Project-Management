@@ -1,20 +1,41 @@
 import { useState } from "react";
 import API from "../services/api";
 import { useNavigate, Link } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 import "../styles/auth.css";
 
 function Login() {
-  const [form, setForm] = useState({ email: "", password: "" });
+  const [form, setForm] = useState({
+    email: "",
+    password: "",
+  });
+
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!form.email || !form.password) {
+      alert("Please fill all fields");
+      return;
+    }
+
     try {
+      setLoading(true);
+
       const { data } = await API.post("/auth/login", form);
-      localStorage.setItem("token", data.token);
+
+      // ✅ Save token using context
+      login(data.token);
+
+      // redirect
       navigate("/dashboard");
     } catch (err) {
-      alert("Login failed");
+      alert(err.response?.data?.message || "Login failed");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -26,16 +47,24 @@ function Login() {
         <input
           type="email"
           placeholder="Email"
-          onChange={(e) => setForm({ ...form, email: e.target.value })}
+          value={form.email}
+          onChange={(e) =>
+            setForm({ ...form, email: e.target.value })
+          }
         />
 
         <input
           type="password"
           placeholder="Password"
-          onChange={(e) => setForm({ ...form, password: e.target.value })}
+          value={form.password}
+          onChange={(e) =>
+            setForm({ ...form, password: e.target.value })
+          }
         />
 
-        <button type="submit">Login</button>
+        <button type="submit" disabled={loading}>
+          {loading ? "Logging in..." : "Login"}
+        </button>
 
         <p>
           Don’t have an account? <Link to="/signup">Signup</Link>
