@@ -4,6 +4,12 @@
   gap: 20px;
 }
 
+/* MOBILE */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
 /* card text */
 .card h3 {
   font-size: 14px;

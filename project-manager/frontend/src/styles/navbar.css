@@ -3,52 +3,39 @@
   justify-content: space-between;
   align-items: center;
   padding: 20px 60px;
-  background: transparent;
 }
 
-.navbar h2 {
-  font-weight: bold;
-  letter-spacing: 0.5px;
+/* MOBILE */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+  }
 }
 
 .nav-links {
   display: flex;
   gap: 20px;
-  align-items: center;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
 
 .nav-links a {
   text-decoration: none;
   color: #555;
-  font-weight: 500;
-  position: relative;
-}
-
-/* underline hover effect */
-.nav-links a::after {
-  content: "";
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: #4cafef;
-  transition: width 0.3s;
-}
-
-.nav-links a:hover::after {
-  width: 100%;
-}
-
-.active {
-  color: #4cafef;
 }
 
 .nav-links button {
-  background: linear-gradient(135deg, #4cafef, #6dd5fa);
+  background: #4cafef;
   color: white;
   border: none;
-  padding: 8px 14px;
-  border-radius: 8px;
-  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 6px;
 }
