@@ -4,28 +4,28 @@ A full-stack project management application where users can create projects, ass
 
 ---
 
-##  Live Demo
+## 🌐 Live Demo
 
 * **Frontend:** https://project-management-bkhd3ad4d-akbar1001s-projects.vercel.app
 * **Backend API:** https://project-management-production-0360.up.railway.app
 
 ---
 
-##  GitHub Repository
+## 📦 GitHub Repository
 
 https://github.com/your-username/project-manager
 
 ---
 
-##  Features
+## ✨ Features
 
-###  Authentication
+### 🔐 Authentication
 
 * User Signup & Login
 * JWT-based authentication
 * Secure password hashing (bcrypt)
 
-###  Role-Based Access
+### 👥 Role-Based Access
 
 * **Admin**
 
@@ -37,19 +37,19 @@ https://github.com/your-username/project-manager
   * View assigned tasks
   * Update task status
 
-###  Project Management
+### 📁 Project Management
 
 * Create and manage projects
 * Add team members
 * View project list
 
-###  Task Management
+### ✅ Task Management
 
 * Create and assign tasks
 * Update task status (todo / in-progress / done)
 * Set due dates
 
-###  Dashboard
+### 📊 Dashboard
 
 * Task statistics overview
 * Status distribution
@@ -57,7 +57,7 @@ https://github.com/your-username/project-manager
 
 ---
 
-##  Tech Stack
+## 🛠️ Tech Stack
 
 ### Frontend
 
@@ -80,7 +80,7 @@ https://github.com/your-username/project-manager
 
 ---
 
-## Folder Structure
+## 📂 Folder Structure
 
 project-manager/
 ├── backend/
@@ -100,9 +100,9 @@ project-manager/
 
 ---
 
-## Local Setup
+## ⚙️ Local Setup
 
-### Clone Repository
+### 1️⃣ Clone Repository
 
 git clone https://github.com/Akbar1001/project-manager.git
 cd project-manager
@@ -126,7 +126,7 @@ npm run dev
 
 ---
 
-### Frontend Setup
+### 3️⃣ Frontend Setup
 
 cd frontend
 npm install
@@ -134,7 +134,7 @@ npm run dev
 
 ---
 
-## API Endpoints
+## 🔑 API Endpoints
 
 ### Auth
 
@@ -160,8 +160,7 @@ npm run dev
 
 ---
 
-
-##  Highlights
+## 🔥 Highlights
 
 * Full-stack deployed application
 * Role-based access control
@@ -171,7 +170,7 @@ npm run dev
 
 ---
 
-## Future Improvements
+## 🚀 Future Improvements
 
 * Kanban board (drag & drop tasks)
 * Notifications system
@@ -180,5 +179,3 @@ npm run dev
 * Charts for analytics
 
 ---
-
-
