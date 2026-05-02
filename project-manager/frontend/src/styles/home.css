@@ -1,0 +1,116 @@
+/* Global */
+.home {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #eef2ff, #f8fbff);
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* Navbar */
+.home-navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 60px;
+  align-items: center;
+}
+
+.home-navbar h2 {
+  font-weight: bold;
+}
+
+.home-navbar a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #333;
+}
+
+.home-navbar .btn {
+  background: #4cafef;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+}
+
+/* Hero */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px;
+}
+
+/* Left */
+.hero-left {
+  max-width: 500px;
+}
+
+.hero-left h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.hero-left span {
+  color: #4cafef;
+}
+
+.hero-left p {
+  margin-bottom: 25px;
+  color: #555;
+}
+
+.hero-buttons button {
+  padding: 12px 18px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.primary {
+  background: #4cafef;
+  color: white;
+}
+
+.secondary {
+  background: white;
+  border: 1px solid #ccc;
+}
+
+/* Right Cards (Bento Style) */
+.hero-right {
+  display: grid;
+  grid-template-columns: 150px 150px;
+  gap: 15px;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.large {
+  grid-column: span 2;
+  height: 120px;
+}
+
+.small {
+  height: 80px;
+}
+
+/* Features */
+.features {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 40px;
+}
+
+.feature {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 200px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}

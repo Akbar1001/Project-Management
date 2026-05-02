@@ -5,19 +5,11 @@ import "../styles/projects.css";
 
 function Projects() {
   const [projects, setProjects] = useState([]);
-  const [form, setForm] = useState({
-    name: "",
-    description: "",
-  });
+  const [form, setForm] = useState({ name: "", description: "" });
 
   const fetchProjects = async () => {
-    try {
-      const { data } = await API.get("/projects");
-      setProjects(data);
-    } catch (err) {
-      console.error(err);
-      alert("Failed to load projects");
-    }
+    const { data } = await API.get("/projects");
+    setProjects(data);
   };
 
   useEffect(() => {
@@ -26,33 +18,21 @@ function Projects() {
 
   const handleCreate = async (e) => {
     e.preventDefault();
-
-    if (!form.name) {
-      alert("Project name required");
-      return;
-    }
-
-    try {
-      await API.post("/projects", form);
-      setForm({ name: "", description: "" });
-      fetchProjects();
-    } catch (err) {
-      alert(err.response?.data?.message || "Error creating project");
-    }
+    await API.post("/projects", form);
+    setForm({ name: "", description: "" });
+    fetchProjects();
   };
 
   return (
     <>
       <Navbar />
 
-      <div className="projects">
+      <div className="page">
         <h1>Projects</h1>
 
-        {/* Create Project */}
         <form className="project-form" onSubmit={handleCreate}>
           <input
-            type="text"
-            placeholder="Project Name"
+            placeholder="Name"
             value={form.name}
             onChange={(e) =>
               setForm({ ...form, name: e.target.value })
@@ -60,7 +40,6 @@ function Projects() {
           />
 
           <input
-            type="text"
             placeholder="Description"
             value={form.description}
             onChange={(e) =>
@@ -68,21 +47,16 @@ function Projects() {
             }
           />
 
-          <button type="submit">Create</button>
+          <button className="btn btn-primary">Create</button>
         </form>
 
-        {/* Project List */}
-        <div className="project-list">
-          {projects.length === 0 ? (
-            <p>No projects found</p>
-          ) : (
-            projects.map((proj) => (
-              <div key={proj._id} className="project-card">
-                <h3>{proj.name}</h3>
-                <p>{proj.description}</p>
-              </div>
-            ))
-          )}
+        <div className="project-grid">
+          {projects.map((p) => (
+            <div key={p._id} className="card">
+              <h3>{p.name}</h3>
+              <p>{p.description}</p>
+            </div>
+          ))}
         </div>
       </div>
     </>

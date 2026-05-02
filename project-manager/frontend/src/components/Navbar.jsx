@@ -7,19 +7,12 @@ function Navbar() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const handleLogout = () => {
-    logout();
-    navigate("/");
-  };
-
-  // helper to highlight active link
-  const isActive = (path) => {
-    return location.pathname === path ? "active-link" : "";
-  };
+  const isActive = (path) =>
+    location.pathname === path ? "active" : "";
 
   return (
     <div className="navbar">
-      <h2 className="logo">Project Manager</h2>
+      <h2>Projex</h2>
 
       <div className="nav-links">
         <Link to="/dashboard" className={isActive("/dashboard")}>
@@ -30,7 +23,18 @@ function Navbar() {
           Projects
         </Link>
 
-        <button onClick={handleLogout}>Logout</button>
+        <Link to="/tasks" className={isActive("/tasks")}>
+          Tasks
+        </Link>
+
+        <button
+          onClick={() => {
+            logout();
+            navigate("/");
+          }}
+        >
+          Logout
+        </button>
       </div>
     </div>
   );

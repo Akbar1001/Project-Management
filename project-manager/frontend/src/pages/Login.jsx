@@ -1,6 +1,6 @@
 import { useState } from "react";
-import API from "../services/api";
 import { useNavigate, Link } from "react-router-dom";
+import API from "../services/api";
 import { useAuth } from "../context/AuthContext";
 import "../styles/auth.css";
 
@@ -11,8 +11,9 @@ function Login() {
   });
 
   const [loading, setLoading] = useState(false);
+
   const navigate = useNavigate();
-  const { login } = useAuth();
+  const auth = useAuth(); // safer access
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,12 +28,16 @@ function Login() {
 
       const { data } = await API.post("/auth/login", form);
 
-      // ✅ Save token using context
-      login(data.token);
+      // fallback safe handling
+      if (auth && auth.login) {
+        auth.login(data.token);
+      } else {
+        localStorage.setItem("token", data.token);
+      }
 
-      // redirect
       navigate("/dashboard");
     } catch (err) {
+      console.error(err);
       alert(err.response?.data?.message || "Login failed");
     } finally {
       setLoading(false);
@@ -41,7 +46,7 @@ function Login() {
 
   return (
     <div className="auth-container">
-      <form onSubmit={handleSubmit} className="auth-box">
+      <form className="auth-box" onSubmit={handleSubmit}>
         <h2>Login</h2>
 
         <input
@@ -67,7 +72,8 @@ function Login() {
         </button>
 
         <p>
-          Don’t have an account? <Link to="/signup">Signup</Link>
+          Don’t have an account?{" "}
+          <Link to="/signup">Signup</Link>
         </p>
       </form>
     </div>
